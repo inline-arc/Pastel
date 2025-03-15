@@ -6,9 +6,11 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Star, Github } from "lucide-react"
 import { Logo } from "./pages/logo"
-import Wallet from "./pages/wallet"
+import { Wallet } from "./pages/wallet"
 import { UserForm } from "./pages/userform"
 import { ContentCarousel } from "./pages/content-carousel"
+import { Footer } from "./pages/footer"
+import { WaitlistForm } from "./pages/waitlistform"
 
 export default function Home() {
   return (
@@ -27,7 +29,7 @@ export default function Home() {
               <Button
                 variant="ghost"
                 size="sm"
-                className="gap-2 text-[#6B7280] transition-all duration-300 hover:bg-[#E6E6FF]"
+                className="gap-2 text-[#242e36] transition-all duration-300 hover:bg-[#E6E6FF]"
               >
                 <Github className="h-4 w-4" />
                 <Star className="h-4 w-4" />
@@ -39,9 +41,16 @@ export default function Home() {
         </div>
       </header>
       <main className="container mx-auto px-4 pt-24">
+      <div className="mb-8 text-center">
+          <h1 className="font-serif text-4xl font-medium text-[#98d8b6] md:text-5xl">Crypto Transactions, Simplified</h1>
+          <p className="mt-4 text-slate-900/80">Send and receive crypto with a beautiful, intuitive interface</p>
+          <div className="mt-8">
+            <WaitlistForm />
+          </div>
+        </div>
         <ResizablePanelGroup
           direction="horizontal"
-          className="min-h-[800px] overflow-hidden rounded-2xl border border-[#E6E6FF] bg-white shadow-sm transition-all duration-300 hover:shadow-md"
+          className="min-h-[800px] overflow-hidden rounded-2xl border border-[#98d8b6] bg-white shadow-sm transition-all duration-300 hover:shadow-md"
         >
           <ResizablePanel defaultSize={50}>
             <div className="p-4">
@@ -56,6 +65,7 @@ export default function Home() {
           </ResizablePanel>
         </ResizablePanelGroup>
       </main>
+      <Footer />
     </div>
   )
 }

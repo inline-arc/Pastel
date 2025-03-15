@@ -67,7 +67,7 @@ export function UserForm() {
         <div className="space-y-4">
           <Skeleton className="h-8 w-[200px]" />
           <Skeleton className="h-12 w-full" />
-          <Skeleton className="h-12 w-full" />
+          <Skeleton className="h-12 w-full" />  
           <div className="grid grid-cols-2 gap-4">
             <Skeleton className="h-12 w-full" />
             <Skeleton className="h-12 w-full" />
@@ -77,7 +77,7 @@ export function UserForm() {
         </div>
       ) : (
         <>
-          <h2 className="mb-6 text-2xl font-medium text-slate-800">Transaction Details</h2>
+           <h2 className="mb-6 text-2xl font-medium text-slate-800">Create GiftCard 🌠</h2>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
@@ -85,13 +85,13 @@ export function UserForm() {
                 name="amount"
                 render={({ field }) => (
                   <FormItem>
-                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 hover:bg-slate-100">
+                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 transition-all duration-300 hover:bg-slate-100">
                       <div className="mb-4 text-center">
-                        <Input
-                          type="number"
+                        <input
+                          type="text"
                           value={field.value}
                           onChange={(e) => form.setValue("amount", e.target.value)}
-                          className="w-full text-center text-4xl font-medium"
+                          className="w-full bg-transparent text-center text-4xl font-medium text-slate-800 focus:outline-none"
                           placeholder="0"
                         />
                         <div className="mt-1 text-sm text-slate-500">{form.watch("currency").toUpperCase()}</div>
@@ -103,6 +103,7 @@ export function UserForm() {
                             type="button"
                             variant="outline"
                             onClick={() => form.setValue("amount", amount)}
+                            className="rounded-lg border-slate-200 transition-all duration-200 hover:bg-violet-100 hover:text-violet-700"
                           >
                             ${amount}
                           </Button>
