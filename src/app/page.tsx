@@ -52,7 +52,7 @@ export default function Home() {
           direction="horizontal"
           className="min-h-[800px] overflow-hidden rounded-2xl border border-[#98d8b6] bg-white shadow-sm transition-all duration-300 hover:shadow-md"
         >
-          <ResizablePanel defaultSize={50}>
+          <ResizablePanel defaultSize={30}>
             <div className="p-4">
               <UserForm />
             </div>
