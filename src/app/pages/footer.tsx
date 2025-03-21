@@ -44,35 +44,10 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="mt-24">
-      {/* Features Section */}
-      <div className="container mb-16">
-        <div className="rounded-[2rem] bg-gradient-to-b from-white/80 to-white/40 p-8 shadow-lg backdrop-blur-sm">
-          <div className="mb-12 text-center">
-            <h2 className="font-serif text-3xl font-medium text-[#1F2937]">Simple payments, powerful features</h2>
-            <p className="mt-4 text-[#6B7280]">Let your clients simply click and pay, easy as that.</p>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="group rounded-xl bg-white/50 p-6 transition-all duration-300 hover:scale-105 hover:bg-white hover:shadow-md"
-              >
-                <div className="mb-4 inline-flex rounded-lg bg-[#98D8B6]/10 p-3 transition-colors group-hover:bg-[#98D8B6]/20">
-                  <feature.icon className="h-6 w-6 text-[#98D8B6]" />
-                </div>
-                <h3 className="mb-2 font-medium text-[#1F2937]">{feature.title}</h3>
-                <p className="text-sm text-[#6B7280]">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
+    <footer className="mt-52">
       {/* Footer Links */}
       <div className="border-t border-[#E6E6FF]">
-        <div className="container py-12">
+        <div className="container py-12 space-y-8 ml-32">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {footerLinks.map((section, index) => (
               <div key={index} className="space-y-4">

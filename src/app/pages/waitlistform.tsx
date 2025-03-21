@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -12,28 +11,37 @@ export function WaitlistForm() {
   const [isExpanded, setIsExpanded] = useState(false)
   const [email, setEmail] = useState("")
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (email) {
+  const DataPush = async (e: any) => {
+    e.preventDefault();
+    
+    const res = await fetch("http://localhost:5000/api/waitlist", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),  
+    });
+
+    const data = await res.json();
+    if (data.message) {
       toast.success("Thanks for joining!", {
         description: "We'll keep you updated on our progress."
-      })
-      setEmail("")
-      setIsExpanded(false)
+      });
+      setEmail("");
+    } else {
+      toast.error(data.error || "Something went wrong!");
     }
-  }
+  };
 
   return (
     <div className="mx-auto max-w-md">
       {!isExpanded ? (
         <Button
           onClick={() => setIsExpanded(true)}
-          className="w-full rounded-full bg-[#98D8B6] text-[#1F2937] transition-all duration-500 hover:scale-105 hover:bg-[#98D8B6]/90 hover:shadow-lg"
+          className="w-1/3 rounded-full bg-[#98d8b6] text-[#1F2937] transition-all duration-500 hover:scale-105 hover:bg-[#98D8B6]/90 hover:shadow-lg"
         >
           Join Waitlist
         </Button>
       ) : (
-        <form onSubmit={handleSubmit} className="relative">
+        <form onSubmit={DataPush} className="relative">
           <Input
             type="email"
             placeholder="Enter your email"

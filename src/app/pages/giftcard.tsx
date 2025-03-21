@@ -60,15 +60,6 @@ const GiftCard = () => {
   };
 
   const handleClick = () => {
-    // Play sound
-    if (audio) {
-      audio.currentTime = 0;
-      audio.volume = 0.5;
-      audio.play().catch(() => {
-        console.log('Audio playback failed');
-      });
-    }
-
     // Simplified flip logic - always add or subtract 180 degrees
     setIsFlipped(prev => !prev);
     setRotation(() => ({
