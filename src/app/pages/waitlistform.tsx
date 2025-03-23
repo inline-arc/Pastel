@@ -13,31 +13,29 @@ export function WaitlistForm() {
 
   const DataPush = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return toast.error("Please enter an email!");
+    if (!email.trim()) {
+      toast.error("Please enter a valid email.");
+      return;
+    }
 
     setLoading(true);
-
     try {
-      const res = await fetch("/api/waitlist", {
+      const response = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
 
-      const data = await res.json();
-
-      if (res.ok) {
-        toast.success("Thanks for joining!", {
-          description: "We'll keep you updated.",
-        });
-        setEmail("");
-        setIsExpanded(false);
+      if (response.ok) {
+        toast.success("You have been added to the waitlist!");
+        setEmail(""); // Reset input
+        setIsExpanded(false); // Hide form after submission
       } else {
-        toast.error(data.error || "Something went wrong!");
+        const errorData = await response.json();
+        toast.error(errorData.error || "Something went wrong.");
       }
     } catch (error) {
-      console.error("❌ Server error:", error);
-      toast.error("Server error, please try again!");
+      toast.error("Failed to submit. Please try again.");
     } finally {
       setLoading(false);
     }
