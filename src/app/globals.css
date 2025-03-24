@@ -183,3 +183,13 @@
   }
 }
 
+@font-face {
+  font-family: 'Perandory';
+  src: url('../app/pages/font/Perandory-Regular.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Perandory', sans-serif;
+}

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronLeft, ChevronRight, ExternalLink, Search, FileText, Wallet } from "lucide-react"
+import { ChevronLeft, ChevronRight, ExternalLink, Search, FileText, Wallet, Copy } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { cn } from "@/lib/utils"
@@ -52,7 +52,7 @@ export function ContentCarousel() {
             View
           </TabsTrigger>
           <TabsTrigger value="contract" className="rounded-full">
-            Contract
+            Track
           </TabsTrigger>
         </TabsList>
         <TabsContent value="solscan" className="mt-2">
@@ -62,7 +62,7 @@ export function ContentCarousel() {
           <div className="text-sm text-slate-500">View transaction in your wallet</div>
         </TabsContent>
         <TabsContent value="contract" className="mt-2">
-          <div className="text-sm text-slate-500">View smart contract details</div>
+          <div className="text-sm text-slate-500">View Track & Claims details</div>
         </TabsContent>
       </Tabs>
 
@@ -131,11 +131,11 @@ export function ContentCarousel() {
           variant="outline"
           className="flex-1 gap-2 rounded-full border-[#E6E6FF] transition-all duration-300 hover:scale-105 hover:bg-[#E6E6FF]/50"
         >
-          <ExternalLink className="h-4 w-4" />
-          View on Solscan
+          <Copy className="h-4 w-4" />
+          Copy Link
         </Button>
         <Button className="flex-1 rounded-full bg-[#98D8B6] text-[#1F2937] transition-all duration-300 hover:scale-105 hover:bg-[#98D8B6]/90 hover:shadow-md">
-          View Details
+          Share GiftCard
         </Button>
       </div>
     </div>
